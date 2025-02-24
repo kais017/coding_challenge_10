@@ -76,6 +76,19 @@ class Inventory {
     listOrders() {
     this.orders.forEach(order => console.log(order.getOrderDetails()));
    }  // logs all placed orders
+//end task 4:
+
+//Task 5: 
+restockProduct(productId, quantity){
+    const product = this.products.find(prod => prod.id === productId);
+    if (product){
+        product.stock += quantity;
+        console.log(`${product.name} restocked. Stock Available: ${product.stock}`)
+    } else {
+        console.log("No Stock Available");
+// method to increase stock of product
+    }
+  }
 }
 
 // test cases:
@@ -93,3 +106,11 @@ inventory.placeOrder(601, prod1, 2);
 inventory.listOrders(); 
 console.log(prod1.getDetails());
 // logs the new order placed
+
+// Task 5: Implementing Product Restocking
+// in task 3
+
+//test cases:
+inventory.restockProduct(101, 5);
+console.log(prod1.getDetails()); 
+// logging the restocked product
